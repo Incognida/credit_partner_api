@@ -57,7 +57,7 @@ class Offer(models.Model):
     max_rating = models.PositiveIntegerField(default=0)
 
     rotation_began_at = models.DateTimeField(blank=True, null=True)
-    rotation_ended_at = models.DateTimeField(blank=True, null=True)
+    rotation_ends_at = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

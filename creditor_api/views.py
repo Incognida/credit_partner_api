@@ -5,7 +5,7 @@ from wsgiref.util import FileWrapper
 from django.conf import settings
 from django.http import HttpResponse
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -17,6 +17,20 @@ from .serializers import OfferSerializer, CreateOfferSerializer
 
 
 class OfferModelViewSet(ModelViewSet):
+    """
+    ---
+        CREATE:
+        Create offer by creditor
+        {
+            "description": "description",
+            "min_rating": 1,
+            "max_rating": 10,
+            "loan_type": "home",
+            "rotation_began_at": "2018-09-29",
+            "rotation_ends_at": "2018-10-29"
+        }
+    ---
+    """
     serializer_class = OfferSerializer
     permission_classes = (ActionBasedPermission,)
     action_permissions = {
@@ -52,10 +66,15 @@ class OfferModelViewSet(ModelViewSet):
 
 
 @api_view(['GET'])
+@permission_classes((IsCreditor,))
 def download_pdf(request, pk):
+    """
+    ---
+        downloads proposal (that was sent to this creditor) pdf file by id,
+        where id - proposal id
+    ---
+    """
     user = request.user
-    if user.role == 'partner':
-        raise ValidationError("partner can't download proposals")
 
     offer_ids = Offer.objects.filter(user_id=user.pk).values_list('id', flat=True)
     proposal = Proposal.objects.filter(

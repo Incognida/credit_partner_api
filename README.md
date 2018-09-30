@@ -1,5 +1,5 @@
 # credit_partner_api
-1. Python3.6 and PostgreSQL v10 is required
+1. Python3.6, PostgreSQL v10, rabbitmq-server are required
 2. First of all, create database and user:
  * sudo -i -u postgres
  * createdb task_db

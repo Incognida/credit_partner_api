@@ -14,6 +14,8 @@ from .serializers import CreateFormSerializer, FormSerializer, ProposalSerialize
 class FormModelViewSet(ModelViewSet):
     """
     ---
+        CREATE:
+        Create form by partner
         {
             "surname": "Rakhimbabin",
             "name": "Zaur",
@@ -86,18 +88,20 @@ class SuitableOffersListApiView(ListAPIView):
 class ProposalModelViewSet(ModelViewSet):
     """
     ---
-        Send to all by partner
+        CREATE:
+        Send all partner's forms that satisfy requirements of all offers
         {
             "send_to_all": true
         }
 
-        Send proposal with appropriate form and offer by partner
+        Send partner's form if it satisfy requirements of offer
         {
             "form_id": 3,
             "offer_id": 1
         }
 
-        Set status by creditor
+        PATCH:
+        Set status of proposal by creditor
         {
             "status": "received"
         }
