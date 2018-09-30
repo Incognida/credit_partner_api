@@ -9,11 +9,12 @@
  * grant all privileges on database task_db to task_user;
 3. virtualenv -p /usr/bin/python3.6 taskenv
 4. source taskenv/bin/activate
-5. pip install -r requirements
-6. python clear_and_populate.py
-7. celery -A task worker -l info
-8. in new tab: ./manage.py runserver
-9. Sign in at `http://localhost:8000/sign_in/`
+5. cd credit_partner_api/
+6. pip install -r requirements
+7. python clear_and_populate.py
+8. celery -A task worker -l info
+9. in new tab: ./manage.py runserver
+10. Sign in at `http://localhost:8000/sign_in/`
 
 You can checkout endpoints and examples by visiting `http://localhost:8000/docs/`
 
