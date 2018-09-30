@@ -13,3 +13,22 @@
 6. python clear_and_populate.py
 7. celery -A task worker -l info
 8. in new tab: ./manage.py runserver
+9. Sign in at `http://localhost:8000/sign_in/`
+
+You can checkout endpoints and examples by visiting `http://localhost:8000/docs/`
+
+
+* Sign in as partner:
+```json
+{
+    "username": "p1",
+    "password": "123qwe123"
+}
+```
+* Sign in as creditor:
+```json
+{
+    "username": "c1",
+    "password": "123qwe123"
+}
+```

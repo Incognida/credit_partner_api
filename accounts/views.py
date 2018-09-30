@@ -10,8 +10,8 @@ from .serializers import UserSerializer, CreateUserSerializer
 
 class CreateUserView(GenericAPIView):
     """
-    Registration user
     ---
+        CREATE:
         {
             "username": "p1",
             "password": "123qwe123",
