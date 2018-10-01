@@ -1,6 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
 
+
+def get_model_fields(model_name):
+    from core.models import Form, Offer, Proposal
+    model = locals()['%s' % model_name]
+    form_fields_list = [field.name for field in model._meta.get_fields() if not field.is_relation]
+
+
 User = get_user_model()
 
 
