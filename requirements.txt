@@ -10,7 +10,7 @@ django-celery-beat==1.1.1
 django-celery-results==1.0.1
 django-extensions==2.1.2
 django-rest-swagger==2.2.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 fpdf==1.7.2
 idna==2.7
 itypes==1.1.0
